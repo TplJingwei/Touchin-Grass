@@ -1,0 +1,49 @@
+﻿<Window x:Class="Touchin_Grass.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Touchin_Grass"
+        mc:Ignorable="d"
+        Title="Touchin'Grass" Height="450" Width="800" Background="#FF708A43"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Icon="/Flower.png" WindowStartupLocation="CenterScreen"
+>
+    <Grid Background="#FF90A965">
+        <TextBox x:Name="PlantSearch" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="PlantSearch_TextChanged" KeyDown="PlantSearch_KeyDown" Background="#FFF8F9E0" GotFocus="PlantSearch_GotFocus" LostFocus="PlantSearch_LostFocus"/>
+        <Label x:Name="SearchHint" Content="Поиск" HorizontalAlignment="Left" Margin="11,39,0,0" VerticalAlignment="Top" Focusable="False" IsHitTestVisible="False"/>
+        <ListBox x:Name="ListPrikolov" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,80,0,24" MinWidth="50" MaxWidth="200" SelectionChanged="ListPrikolov_SelectionChanged" HorizontalAlignment="Left" Width="200" Background="#FFF8F9E0"/>
+        <ComboBox x:Name="CBCategory" HorizontalAlignment="Left" Margin="144,43,0,0" VerticalAlignment="Top" Width="25" Height="18" SelectionChanged="CBCategory_SelectionChanged" SelectedIndex="0">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F9E0" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Content="Все"></ComboBoxItem>
+        </ComboBox>
+        <Grid x:Name="GridM" Margin="215,80,22,24" Background="#FFF8F9E0" Visibility="Hidden">
+            <Image x:Name="PicOfPlant" Margin="390,4,5,158"/>
+            <Grid Margin="0,0,178,0" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="PlantInfo" TextWrapping="Wrap" Text="ddd" Margin="10,10,10,10" Background="#FFF8F9E0" Visibility="Visible"/>
+                </ScrollViewer>
+            </Grid>
+            <Image x:Name="PicOfPlant_Copy" Margin="390,4,5,158"/>
+            <Button x:Name="MoreAbout" Content="Подробнее" HorizontalAlignment="Left" Margin="440,194,0,0" VerticalAlignment="Top" Click="MoreAbout_Click" Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False" Visibility="Hidden"/>
+            <Button x:Name="LessAbout" Content="Описание" HorizontalAlignment="Left" Margin="440,194,0,0" VerticalAlignment="Top" Click="LessAbout_Click" Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False" Visibility="Hidden" />
+            <Button x:Name="PlaceAbout" Content="Распространение" HorizontalAlignment="Left" Margin="440,224,0,0" VerticalAlignment="Top" Click="PlaceAbout_Click" Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False" Visibility="Hidden"/>
+            <Button x:Name="RecipeAbout" Content="Применение" HorizontalAlignment="Left" Margin="440,254,0,0" VerticalAlignment="Top" Click="RecipeAbout_Click" Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False" Visibility="Hidden"/>
+        </Grid>
+        <Grid x:Name="TitleGrid" Background="#FFF8F9E0" Margin="215,20,22,338" Panel.ZIndex="-1">
+            <TextBlock x:Name="PlantName" Margin="10,0,306,0" TextWrapping="Wrap" Text="" Background="#FFF8F9E0" FontSize="20" Height="26" VerticalAlignment="Top"/>
+            <Label x:Name="Greetings" Content="Touchin'Grass" Margin="320,0,10,-26" FontFamily="Vivaldi" FontSize="36" FontWeight="Normal" FontStyle="Normal" Panel.ZIndex="1"/>
+            <Image Source="Res/Flower.png" HorizontalAlignment="Left" Margin="262,2,0,-2" Width="100"/>
+            <TextBlock x:Name="Warning" Margin="10,0,355,0" TextWrapping="Wrap" Text="Растение ядовито" Background="#FFF8F9E0" FontSize="16" Height="26" VerticalAlignment="Bottom" Visibility="Hidden"/>
+
+
+        </Grid>
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" Width="55" Click="Button_Click" Background="#FFF8F9E0"/>
+    </Grid>
+</Window>
